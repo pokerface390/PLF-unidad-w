@@ -129,7 +129,9 @@ tomar 0 _ = []
 tomar n (x:xs) = x : tomar (n - 1) xs
 
 digitosC :: Integer -> [Integer]
-digitosC n = [read [d] | d <- show n]
+digitosC 0 = [] 
+digitosC n = digitosC (n `div` 10) ++ [n `mod` 10] 
+
 
 sumaDigitosR :: Integer -> Integer
 sumaDigitosR 0 = 0
